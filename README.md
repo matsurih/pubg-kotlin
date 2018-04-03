@@ -7,3 +7,12 @@ PUBG API wrapper for Kotlin
 # status 
 Now in development.
 You can use only "getStatus" method because I cannot test other APIs without API key
+
+# usage
+Clone this repository and..
+
+```kotlin
+const val apiKey: String = "PUT YOUR API KEY HERE"
+val pubgKotlin: PubgKotlin = PubgKotlin(apiKey)  // intantiate here with your api key
+val status: Result<Status> = pubgKotlin.getStatus()  // and others
+```
