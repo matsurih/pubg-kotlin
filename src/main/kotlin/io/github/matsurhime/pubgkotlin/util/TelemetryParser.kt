@@ -6,19 +6,17 @@ import io.github.matsurhime.pubgkotlin.model.telemetry.event.*
 class TelemetryParser{
     companion object {
         fun parse(results: List<Event>?): List<Any>?{
-            if (results == null){
-                return null
-            }
+            results?: return null
             val ret = mutableListOf<Any>()
             for(result in results){
                 when(result._T){
                     Log.LogCarePackageLand.name -> {
                         ret.add(
                                 LogCarePackageLand(
-                                        ItemPackage = result.ItemPackage!!,
-                                        _V = result._V,
-                                        _D = result._D,
-                                        _T = result._T,
+                                        ItemPackage = result.itemPackage,
+                                        _V = result._V, 
+                                        _D = result._D, 
+                                        _T = result._T, 
                                         _U = result._U
                                 )
                         )
@@ -26,7 +24,7 @@ class TelemetryParser{
                     Log.LogCarePackageSpawn.name -> {
                         ret.add(
                                 LogCarePackageSpawn(
-                                        ItemPackage = result.ItemPackage!!,
+                                        ItemPackage = result.itemPackage,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -37,7 +35,7 @@ class TelemetryParser{
                     Log.LogGameStatePeriodic.name -> {
                         ret.add(
                                 LogGameStatePeriodic(
-                                        GameState = result.GameState!!,
+                                        GameState = result.gameState,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -48,9 +46,9 @@ class TelemetryParser{
                     Log.LogItemAttach.name -> {
                         ret.add(
                                 LogItemAttach(
-                                        Character = result.Character!!,
-                                        ChildItem = result.ChildItem!!,
-                                        ParentItem = result.ParentItem!!,
+                                        Character = result.character,
+                                        ChildItem = result.childItem,
+                                        ParentItem = result.parentItem,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -61,9 +59,9 @@ class TelemetryParser{
                     Log.LogItemDetach.name -> {
                         ret.add(
                                 LogItemDetach(
-                                        Character = result.Character!!,
-                                        ChildItem = result.ChildItem!!,
-                                        ParentItem = result.ParentItem!!,
+                                        Character = result.character,
+                                        ChildItem = result.childItem,
+                                        ParentItem = result.parentItem,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -74,8 +72,8 @@ class TelemetryParser{
                     Log.LogItemDrop.name -> {
                         ret.add(
                                 LogItemDrop(
-                                        Character = result.Character!!,
-                                        Item = result.Item!!,
+                                        Character = result.character,
+                                        Item = result.item,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -86,8 +84,8 @@ class TelemetryParser{
                     Log.LogItemEquip.name -> {
                         ret.add(
                                 LogItemEquip(
-                                        Character = result.Character!!,
-                                        Item = result.Item!!,
+                                        Character = result.character,
+                                        Item = result.item,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -98,8 +96,8 @@ class TelemetryParser{
                     Log.LogItemPickup.name -> {
                         ret.add(
                                 LogItemPickup(
-                                        Character = result.Character!!,
-                                        Item = result.Item!!,
+                                        character = result.character,
+                                        item = result.item,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -110,8 +108,8 @@ class TelemetryParser{
                     Log.LogItemUnequip.name -> {
                         ret.add(
                                 LogItemUnequip(
-                                        Character = result.Character!!,
-                                        Item = result.Item!!,
+                                        Character = result.character,
+                                        Item = result.item,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -122,8 +120,8 @@ class TelemetryParser{
                     Log.LogItemUse.name -> {
                         ret.add(
                                 LogItemUse(
-                                        Character = result.Character!!,
-                                        Item = result.Item!!,
+                                        Character = result.character,
+                                        Item = result.item,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -134,8 +132,8 @@ class TelemetryParser{
                     Log.LogMatchDefinition.name -> {
                         ret.add(
                                 LogMatchDefinition(
-                                        MatchId = result.MatchId!!,
-                                        PingQuality = result.PingQuality,
+                                        MatchId = result.matchId,
+                                        PingQuality = result.pingQuality,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -146,7 +144,7 @@ class TelemetryParser{
                     Log.LogMatchEnd.name -> {
                         ret.add(
                                 LogMatchEnd(
-                                        Characters = result.Characters!!,
+                                        Characters = result.characters,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -157,7 +155,7 @@ class TelemetryParser{
                     Log.LogMatchStart.name -> {
                         ret.add(
                                 LogMatchStart(
-                                        Characters = result.Characters!!,
+                                        Characters = result.characters,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -168,11 +166,11 @@ class TelemetryParser{
                     Log.LogPlayerAttack.name -> {
                         ret.add(
                                 LogPlayerAttack(
-                                        AttackId = result.AttackId!!,
-                                        Attacker = result.Attacker!!,
-                                        AttackType = result.AttackType!!,
-                                        Vehicle = result.Vehicle!!,
-                                        Weapon = result.Weapon!!,
+                                        AttackId = result.attackId,
+                                        Attacker = result.attacker,
+                                        AttackType = result.attackType,
+                                        Vehicle = result.vehicle,
+                                        Weapon = result.weapon,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -183,7 +181,7 @@ class TelemetryParser{
                     Log.LogPlayerCreate.name -> {
                         ret.add(
                                 LogPlayerCreate(
-                                        Character = result.Character!!,
+                                        Character = result.character,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -194,12 +192,12 @@ class TelemetryParser{
                     Log.LogPlayerKill.name -> {
                         ret.add(
                                 LogPlayerKill(
-                                        AttackId = result.AttackId!!,
-                                        Distance = result.Distance!!,
-                                        Killer = result.Killer!!,
-                                        DamageCauserName = result.DamageCauserName!!,
-                                        DamageTypeCategory = result.DamageTypeCategory!!,
-                                        Victim = result.Victim!!,
+                                        AttackId = result.attackId,
+                                        Distance = result.distance,
+                                        Killer = result.killer,
+                                        DamageCauserName = result.damageCauserName,
+                                        DamageTypeCategory = result.damageTypeCategory,
+                                        Victim = result.victim,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -210,9 +208,9 @@ class TelemetryParser{
                     Log.LogPlayerLogin.name -> {
                         ret.add(
                                 LogPlayerLogin(
-                                        AccountId = result.AccountId!!,
-                                        ErrorMessage = result.ErrorMessage!!,
-                                        Result = result.Result!!,
+                                        AccountId = result.accountId,
+                                        ErrorMessage = result.errorMessage,
+                                        Result = result.result,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -223,7 +221,7 @@ class TelemetryParser{
                     Log.LogPlayerLogout.name -> {
                         ret.add(
                                 LogPlayerLogout(
-                                        AccountId = result.AccountId!!,
+                                        AccountId = result.accountId,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -234,9 +232,9 @@ class TelemetryParser{
                     Log.LogPlayerPosition.name -> {
                         ret.add(
                                 LogPlayerPosition(
-                                        Character = result.Character!!,
-                                        ElapsedTime = result.ElapsedTime!!,
-                                        NumAlivePlayers = result.NumAlivePlayers!!,
+                                        Character = result.character,
+                                        ElapsedTime = result.elapsedTime,
+                                        NumAlivePlayers = result.numAlivePlayers,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -247,13 +245,13 @@ class TelemetryParser{
                     Log.LogPlayerTakeDamage.name -> {
                         ret.add(
                                 LogPlayerTakeDamage(
-                                        Attacker = result.Attacker!!,
-                                        AttackId = result.AttackId!!,
-                                        Damage = result.Damage!!,
-                                        DamageReason = result.DamageReason!!,
-                                        DamageCauserName = result.DamageCauserName!!,
-                                        DamageTypeCategory = result.DamageTypeCategory!!,
-                                        Victim = result.Victim!!,
+                                        Attacker = result.attacker,
+                                        AttackId = result.attackId,
+                                        Damage = result.damage,
+                                        DamageReason = result.damageReason,
+                                        DamageCauserName = result.damageCauserName,
+                                        DamageTypeCategory = result.damageTypeCategory,
+                                        Victim = result.victim,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -264,12 +262,12 @@ class TelemetryParser{
                     Log.LogVehicleDestroy.name -> {
                         ret.add(
                                 LogVehicleDestroy(
-                                        Attacker = result.Attacker!!,
-                                        AttackId = result.AttackId!!,
-                                        Distance = result.Distance!!,
-                                        Vehicle = result.Vehicle!!,
-                                        DamageCauserName = result.DamageCauserName!!,
-                                        DamageTypeCategory = result.DamageTypeCategory!!,
+                                        Attacker = result.attacker,
+                                        AttackId = result.attackId,
+                                        Distance = result.distance,
+                                        Vehicle = result.vehicle,
+                                        DamageCauserName = result.damageCauserName,
+                                        DamageTypeCategory = result.damageTypeCategory,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -280,8 +278,8 @@ class TelemetryParser{
                     Log.LogVehicleRide.name -> {
                         ret.add(
                                 LogVehicleRide(
-                                        Character = result.Character!!,
-                                        Vehicle = result.Vehicle!!,
+                                        Character = result.character,
+                                        Vehicle = result.vehicle,
                                         _V = result._V,
                                         _D = result._D,
                                         _T = result._T,
@@ -289,7 +287,7 @@ class TelemetryParser{
                                 )
                         )
                     }
-
+                    
                 }
             }
             return ret

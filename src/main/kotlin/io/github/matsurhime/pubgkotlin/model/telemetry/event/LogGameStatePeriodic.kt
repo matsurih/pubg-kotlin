@@ -5,7 +5,7 @@ import java.util.*
 
 
 data class LogGameStatePeriodic(
-        val GameState: GameState,
+        val GameState: GameState?,
         val _V: Int,
         val _D: Date,
         val _T: String,

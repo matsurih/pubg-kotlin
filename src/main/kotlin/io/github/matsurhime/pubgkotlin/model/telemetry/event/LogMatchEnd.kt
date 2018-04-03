@@ -4,7 +4,7 @@ import io.github.matsurhime.pubgkotlin.model.telemetry.Character
 import java.util.*
 
 data class LogMatchEnd(
-        val Characters: List<Character>,
+        val Characters: List<Character>?,
         val _V: Int,
         val _D: Date,
         val _T: String,

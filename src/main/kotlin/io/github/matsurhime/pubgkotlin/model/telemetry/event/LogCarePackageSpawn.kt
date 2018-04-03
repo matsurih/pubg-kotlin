@@ -5,7 +5,7 @@ import java.util.*
 
 
 data class LogCarePackageSpawn(
-        val ItemPackage: ItemPackage,
+        val ItemPackage: ItemPackage?,
         val _V: Int,
         val _D: Date,
         val _T: String,

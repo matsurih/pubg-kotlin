@@ -33,7 +33,7 @@ data class RosterAttributes(
  */
 data class RosterRelationships(
         val participants: List<Participant?>?,
-        val team: Team?
+        val team: Any?
 )
 
 /**

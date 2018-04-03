@@ -1,12 +1,11 @@
 package io.github.matsurhime.pubgkotlin.model.telemetry
 
 
-
 data class Character(
-        val Name: String,
-        val TeamId: Int,
-        val Health: Float,
-        val Location: Location,
-        val Ranking: Int,
-        val AccountId: String
+        val name: String,
+        val teamId: Int,
+        val health: Float,
+        val location: Location,
+        val ranking: Int,
+        val accountId: String
 )

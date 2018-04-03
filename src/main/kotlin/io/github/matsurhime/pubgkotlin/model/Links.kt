@@ -1,5 +1,6 @@
 package io.github.matsurhime.pubgkotlin.model
 
 data class Links(
-        val hoge : Any?
+        val schema: String,
+        val self: String
 )

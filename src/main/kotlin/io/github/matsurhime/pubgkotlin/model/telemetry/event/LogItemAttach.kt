@@ -5,9 +5,9 @@ import io.github.matsurhime.pubgkotlin.model.telemetry.Item
 import java.util.*
 
 data class LogItemAttach(
-        val Character: Character,
-        val ParentItem: Item,
-        val ChildItem: Item,
+        val Character: Character?,
+        val ParentItem: Item?,
+        val ChildItem: Item?,
         val _V: Int,
         val _D: Date,
         val _T: String,

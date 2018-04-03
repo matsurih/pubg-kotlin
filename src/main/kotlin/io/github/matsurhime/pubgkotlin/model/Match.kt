@@ -22,10 +22,11 @@ data class MatchAttributes(
         val createdAt: String,
         val duration: Int,
         val gameMode: String,
-        val patchVersion: String?,
+        val patchVersion: String,
         val sharedId: String,
-        val stats: Any?,
-        val tags: Any?
+        val stats: Any?,  // null
+        val tags: Any?,  // null
+        val tagId: String
 )
 
 /**
@@ -33,10 +34,15 @@ data class MatchAttributes(
  * [spectators]: N/A
  */
 data class MatchRelationships(
-        val assets: Any?,
-        val rosters: List<MatchRelationshipRosters>?,
-        val rounds: Any?,
-        val spectators: Any?
+        val assets: Data<List<MatchAssetsData>>?,
+        val rosters: Data<List<MatchRelationshipRosters>>?,
+        val rounds: Data<List<Any>>?,
+        val spectators: Data<List<Any>>?
+)
+
+data class MatchAssetsData(
+        val type: String,
+        val id: String
 )
 
 data class MatchRelationshipRosters(
