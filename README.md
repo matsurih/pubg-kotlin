@@ -4,10 +4,6 @@
 PUBG API wrapper for Kotlin
 (ref. https://developer.playbattlegrounds.com/?loc=en)
 
-# status 
-Now in development.
-You can use few methods. sorry!
-
 # usage
 Clone this repository and..
 
