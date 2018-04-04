@@ -9,6 +9,6 @@ Clone this repository and..
 
 ```kotlin
 const val apiKey: String = "PUT YOUR API KEY HERE"
-val pubgKotlin: PubgKotlin = PubgKotlin(apiKey)  // intantiate here with your api key
+val pubgKotlin: PubgKotlin = PubgKotlin(apiKey)  // instantiate here with your api key
 val status: Result<Status> = pubgKotlin.getStatus()  // and others
 ```
