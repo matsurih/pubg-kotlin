@@ -4,6 +4,8 @@
 PUBG API wrapper for Kotlin
 (ref. https://developer.playbattlegrounds.com/?loc=en)
 
+listed on [official developpers site](https://documentation.pubg.com/en/community-sdks.html) as one of community SDKs. 
+
 # usage
 Clone this repository and..
 
